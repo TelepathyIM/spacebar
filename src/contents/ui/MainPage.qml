@@ -60,11 +60,11 @@ Kirigami.ScrollablePage {
         Controls.Label {
             text: i18n("No conversations yet")
             anchors.centerIn: parent
-            visible: plasmaSortFilterModel.count === 0 && telepathyManager.ready
+            visible: plasmaSortFilterModel.count === 0 && KTp.TelepathyManager.ready
         }
 
         Controls.BusyIndicator {
-            running: !telepathyManager.ready
+            running: !KTp.TelepathyManager.ready
             anchors.centerIn: parent
             width: Kirigami.Units.gridUnit * 5
         }
@@ -85,13 +85,13 @@ Kirigami.ScrollablePage {
                 }
 
                 Component.onCompleted: {
-                    telepathyManager.registerClient(mainModel, "SpaceBar");
-                    telepathyManager.registerClient(mainModel.observerProxy(), "SpaceBarObserverProxy");
-                    mainModel.setAccountManager(telepathyManager.accountManager);
+                    KTp.TelepathyManager.registerClient(mainModel, "SpaceBar");
+                    KTp.TelepathyManager.registerClient(mainModel.observerProxy(), "SpaceBarObserverProxy");
+                    mainModel.setAccountManager(KTp.TelepathyManager.accountManager);
                 }
 
                 Component.onDestruction: {
-                    telepathyManager.unregisterClient(mainModel);
+                    KTp.TelepathyManager.unregisterClient(mainModel);
                 }
             }
         }

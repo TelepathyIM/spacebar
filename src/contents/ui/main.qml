@@ -21,6 +21,7 @@ import QtQuick 2.3
 import QtQuick.Layouts 1.1
 import QtQuick.Controls 2.2 as Controls
 import org.kde.kirigami 2.1 as Kirigami
+import org.kde.telepathy 0.1 as KTp
 
 Kirigami.ApplicationWindow {
     id: root
@@ -128,7 +129,7 @@ Kirigami.ApplicationWindow {
     }
 
     Component.onCompleted: {
-        telepathyManager.addTextChatFeatures();
-        telepathyManager.becomeReady();
+        KTp.TelepathyManager.addTextChatFeatures();
+        KTp.TelepathyManager.becomeReady();
     }
 }
